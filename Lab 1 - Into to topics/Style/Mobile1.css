@@ -1,0 +1,39 @@
+Body{background:#582A72;
+		font-family:helvetica, arial, sans-serif;
+		color:black;
+		min-width:0;
+}
+
+Header {
+		width: 100%;
+		min-width:0px;
+		Background:white;
+		text-align: center;
+		color: black;
+		margin:0;
+}
+
+Nav {width:65%;		
+		Background:#582A72;
+		min-width:0px;
+		
+}
+
+nav ul {list-style-type: none;
+		width: 50%;
+	}
+
+nav li a {
+    display: block;
+	color:white;
+    text-decoration:none;
+    padding: 8px 16px;
+}
+
+Section {width: 100%;
+		min-width:0px;
+		Background:white;
+		text-align: center;
+		color: black;
+}
+
