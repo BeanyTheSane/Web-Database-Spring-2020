@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<title>Tab Switching Demo</title>
+	<title>ASP.NET Introduction</title>
 
 	<link type="text/css" rel="Stylesheet" href="style/ff.css" />
 				 
@@ -15,70 +15,70 @@
 
 <body>
 	<header>
-	<h1>Lab #2
+	<h1>Lab #1
 	<br>
-	Tab switching with JavaScript
+	ASP.NET Introduction
 	<br>
-	CISS 232	Adam Knitter
+	CISS 243	Adam Knitter
 	</h1>
 	</header>
 	
 	<main id="main_content">
 	
 		
-		<li class="selected" id="javascript" onclick="change_tab(this.id);">JavaScript</li>
-		<li class="notselected" id="php" onclick="change_tab(this.id);">PHP</li>
-		<li class="notselected" id="ajax" onclick="change_tab(this.id);">Ajax</li>
+		<li class="selected" id="webforms" onclick="change_tab(this.id);">Web Forms</li>
+		<li class="notselected" id="mvc" onclick="change_tab(this.id);">MVC</li>
+		<li class="notselected" id="core" onclick="change_tab(this.id);">Core</li>
 
-		<section class="hidden" id="javascriptContentPage">
+		<section class="hidden" id="webformsContentPage">
 		<div class="InformationPane">
-			<h2>What is JavaScript?</h2>
+			<h2>What is ASP.NET Web Forms?</h2>
 			<p>JavaScript is a scripting language used mainly for web development in conjunction with HTML and CSS.  While HTML provides the content and organization of the website and CSS provides a better visual experience, JavaScript provides interactivity for the user.  JavaScript is what is known as a Client-Side script, meaning that it is executed in the clients environment.  This allows the client experience to be somewhat dynamic without having the need to request updates from the server and refresh constantly.
 			</p>
 		</div>
 		<div class="linkSection">
-			<li class="linkSection"><a href="https://www.tutorialspoint.com/javascript/javascript_overview.htm">tutorialspoint.com</a></li>
-			<li class="linkSection"><a href="https://www.w3schools.com/whatis/whatis_js.asp">w3schools.com</a></li>
-			<li class="linkSection"><a href="https://www.makeuseof.com/tag/what-is-javascript/">makeuseof.com</a></li>
+			<li class="linkSection"><a href="">tutorialspoint.com</a></li>
+			<li class="linkSection"><a href="">w3schools.com</a></li>
+			<li class="linkSection"><a href="">makeuseof.com</a></li>
 		</div>
 		</section>
 		
-		<section class="hidden" id="phpContentPage">
+		<section class="hidden" id="mvcContentPage">
 		<div class="InformationPane">
-			<h2>What is PHP?</h2>
+			<h2>What is ASP.NET MVC?</h2>
 			<p>PHP, or <b>P</b>HP: <b>H</b>ypertext <b>P</b>reprocessor, is another scripting language used mainly for web development.  Unlike JavaScript however, PHP is a Server-Side scripting language.  That means its code is executed on the server.  This is also a much more robust tool that's full of features designed to respond to user requests with a personalized html response.  This allows for a website to be truly dynamic.  Some of the features that make PHP a powerful web development tool are the ability to collect input from a user,interact with different databases, and work with cookies.
 			</p>
 		</div>
 		<div class="linkSection">
-			<li class="linkSection"><a href="https://w3schools.com/php/php_intro.asp">w3schools.com</a></li>
-			<li class="linkSection"><a href="https://www.thoughtco.com/what-is-php-used-for-2694011">thoughtco.com</a></li>
-			<li class="linkSection"><a href="https://www.tutorialspoint.com/php/index.htm">tutorialspoint.com</a></li>
+			<li class="linkSection"><a href="">w3schools.com</a></li>
+			<li class="linkSection"><a href="">thoughtco.com</a></li>
+			<li class="linkSection"><a href="">tutorialspoint.com</a></li>
 		</div>
 		</section>
 		
-		<section class="hidden" id="ajaxContentPage">
+		<section class="hidden" id="coreContentPage">
 		<div class="InformationPane">
-			<h2>What is Ajax?</h2>
+			<h2>What is ASP.NET Core?</h2>
 			<p>Ajax stands for <b>A</b>synchronous <b>J</b>avaScript and <b>X</b>ML.  Ajax is actually not a programming language but rather, it is a set of principles and techniques for web development.  Some of these techniques include HTML/XHTML, the Document Object Model(DOM), XML(plain text or JSON), the XMLHttoRequest oblect, and JavaScript.  It works to enhance the user experience by providing speed and functionality.  Ajax does this by using JavaScript to make an HTTP request in a seperate thread, interpreting the XML, and updating the interface without reloading the whole page.  This results in the user being able to continue to use the current page while the requests are made in the background.
 			</p>
 		</div>
 		<div class="linkSection">
-			<li class="linkSection"><a href="https://www.w3schools.com/js/js_ajax_intro.asp">w3schools.com</a></li>
-			<li class="linkSection"><a href="https://www.hostinger.com/tutorials/what-is-ajax">hostinger.com</a></li>
-			<li class="linkSection"><a href="https://www.tutorialspoint.com/ajax/index.htm">tutorialspoint.com</a></li>	
+			<li class="linkSection"><a href="">w3schools.com</a></li>
+			<li class="linkSection"><a href="">hostinger.com</a></li>
+			<li class="linkSection"><a href="">tutorialspoint.com</a></li>	
 		</div>
 		</section>
 
 		<section id="page_content">
 		<div class="InformationPane">
-			<h2>What is JavaScript?</h2>
+			<h2>What is ASP.NET Web Forms?</h2>
 			<p>JavaScript is a scripting language used mainly for web development in conjunction with HTML and CSS.  While HTML provides the content and organization of the website and CSS provides a better visual experience, JavaScript provides interactivity for the user.  JavaScript is what is known as a Client-Side script, meaning that it is executed in the clients environment.  This allows the client experience to be somewhat dynamic without having the need to request updates from the server and refresh constantly.
 			</p>
 		</div>
 		<div class="linkSection">
-			<li class="linkSection"><a href="https://www.tutorialspoint.com/javascript/javascript_overview.htm">tutorialspoint.com</a></li>
-			<li class="linkSection"><a href="https://www.w3schools.com/whatis/whatis_js.asp">w3schools.com</a></li>
-			<li class="linkSection"><a href="https://www.makeuseof.com/tag/what-is-javascript/">makeuseof.com</a></li>
+			<li class="linkSection"><a href="">tutorialspoint.com</a></li>
+			<li class="linkSection"><a href="">w3schools.com</a></li>
+			<li class="linkSection"><a href="">makeuseof.com</a></li>
 		</div>
 		</section>
 	
