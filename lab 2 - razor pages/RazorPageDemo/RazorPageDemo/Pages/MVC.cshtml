@@ -1,0 +1,17 @@
+﻿@page
+@model RazorPageDemo.Pages.MVCModel
+@{
+    ViewData["Title"] = "MVC";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+        <h2 class="col-lg-offset-2">@Model.Message</h2>
+        <h3 class="col-lg-2">@ViewData["Title"]</h3>
+        <div class="col-lg-8">
+            <p>
+                This programming model splits the project into three different layers.
+                <br>The <b>Model</b>      - Business Layer
+                <br>The <b>View</b>       - Display Layer
+                <br>The <b>Controller</b> - Input Control<br>
+                This allows multiple teams to work on the same project without too much interference because the code is separated.  Designers can work on the front end and developers can work on the back-end.  This model also gives much more control over the behavior of the project by giving the user direct control over much of the front end development that the Web Form model automates.  This model works well with larger and complex projects and supports unit testing among other features.
+            </p>
+        </div>
