@@ -1,0 +1,18 @@
+﻿@page
+@model RazorPageDemo.Pages.WebFormsModel
+@{
+    ViewData["Title"] = "WebForms";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<h2 class="col-lg-offset-2">@Model.Message</h2>
+<h3 class="col-lg-2">@ViewData["Title"]</h3>
+<div class="col-lg-8">
+    
+<p>
+    This was the first programming model available for ASP.NET.  The model utilizes the .NET framework and can be 	written in a language that 		supports the Common Language Runtime (CLR) such as
+    visual basic and C#.  This model is designed for Rapid Application Development (RAD) and is very designer driven.  It allows you to use a drag-and-drop
+    development model to quickly put together the front end views without extensive knowledge of html or javascript.  This is possible because the framework
+    will automagically generate most of the markup that will be sent to the browser.  This is it's downfall however, because of the auto generated markup you
+    have less control over some of the behaviors of your application.
+</p>
+</div>

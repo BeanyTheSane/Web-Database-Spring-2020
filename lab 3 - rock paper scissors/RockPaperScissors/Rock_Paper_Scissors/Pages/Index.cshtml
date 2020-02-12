@@ -1,0 +1,40 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "The Game";
+}
+
+
+<div class="container gameScreen">
+    <form method="post" class="col-lg-4">
+        <label class="row">
+            <input type="radio" name="userSelection" value="rock" />
+            <img src="~/images/rockBanner.png" class="userSelection" />
+        </label>
+        <label class="row">
+            <input type="radio" class="row userSelection" name="userSelection" value="paper" />
+            <img src="~/images/paperBanner.png" class="userSelection" />
+        </label>
+        <label class="row">
+            <input type="radio" class="row userSelection" name="userSelection" value="scissors" />
+            <img src="~/images/scissorsBanner.png" class="userSelection" />
+        </label>
+        <input type="image" src="~/images/shootBanner.png" class="userSelection" />
+    </form>
+
+        <div class="col-lg-7">
+            <div class="row">
+                <div class="resultsBannerContainer">
+                    <img src="~/images/@Model.resultsBannerImage" id="resultsBanner" class="resultsBanner" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="~/images/@Model.userChoiceImage" id="userChoice" class="leftHand" />
+                </div>
+                <div class="col-lg-6">
+                    <img src="~/images/@Model.gameChoiceImage" id="gameChoice" class="rightHand" />
+                </div>
+            </div>
+        </div>
+</div>
