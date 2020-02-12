@@ -11799,7 +11799,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\COKNIT\\.nuget\\packages\\": {},
+    "C:\\Users\\knitt\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -11808,14 +11808,14 @@
       "projectUniqueName": "C:\\sandbox\\Web-Database-Spring-2020\\lab 3 - rock paper scissors\\RockPaperScissors\\Rock_Paper_Scissors\\Rock_Paper_Scissors.csproj",
       "projectName": "Rock_Paper_Scissors",
       "projectPath": "C:\\sandbox\\Web-Database-Spring-2020\\lab 3 - rock paper scissors\\RockPaperScissors\\Rock_Paper_Scissors\\Rock_Paper_Scissors.csproj",
-      "packagesPath": "C:\\Users\\COKNIT\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\knitt\\.nuget\\packages\\",
       "outputPath": "C:\\sandbox\\Web-Database-Spring-2020\\lab 3 - rock paper scissors\\RockPaperScissors\\Rock_Paper_Scissors\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\COKNIT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\knitt\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11823,7 +11823,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://paramp1ap1:8080/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
