@@ -19,6 +19,7 @@ namespace Rock_Paper_Scissors.Pages
         public String persistScissors { get; set; }
         public int userScore = 0;
         public int gameScore = 0;
+        public String resultsClass = "firstTime";
 
         public void OnGet()
         {
@@ -70,6 +71,8 @@ namespace Rock_Paper_Scissors.Pages
 
 
             evaluateResults();
+
+            resultsClass = "postback";
 
         }
 

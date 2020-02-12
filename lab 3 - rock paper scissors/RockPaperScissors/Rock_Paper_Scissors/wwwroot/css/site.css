@@ -7,6 +7,14 @@ body {
     color: #f1f1f1;
 }
 
+.firstTime {
+    display: none;
+}
+
+.postback {
+    display: block;
+}
+
 .gameScreen {
     margin-top: 25px;
 }
