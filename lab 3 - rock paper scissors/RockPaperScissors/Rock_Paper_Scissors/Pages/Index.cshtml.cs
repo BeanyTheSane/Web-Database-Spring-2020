@@ -14,20 +14,36 @@ namespace Rock_Paper_Scissors.Pages
         public String userChoiceImage { get; set; }
         public String gameChoiceImage { get; set; }
         public String resultsBannerImage { get; set; }
+        public String persistRock { get; set; }
+        public String persistPaper { get; set; }
+        public String persistScissors { get; set; }
+        public int userScore = 0;
+        public int gameScore = 0;
+
+        public void OnGet()
+        {
+            persistRock = "checked";
+        }
 
         public void OnPost()
         {
+            gameScore = Convert.ToInt32(Request.Form["gameScore"]);
+            userScore = Convert.ToInt32(Request.Form["userScore"]);
+
             userChoice = Request.Form["userSelection"];
             switch (userChoice)
             {
                 case "rock":
                     userChoiceImage = "leftRock.png";
+                    persistUserChoice("rock");
                     break;
                 case "paper":
                     userChoiceImage = "leftPaper.png";
+                    persistUserChoice("paper");
                     break;
                 case "scissors":
                     userChoiceImage = "leftScissors.png";
+                    persistUserChoice("scissors");
                     break;
                 default:
                     break;
@@ -64,16 +80,42 @@ namespace Rock_Paper_Scissors.Pages
                 || (userChoice.Equals("scissors") && gameChoice.Equals("paper")))
             {
                 resultsBannerImage = "winnerBanner.png";
+                userScore = userScore + 1;
             }
             else if ((userChoice.Equals("rock") && gameChoice.Equals("paper"))
                 || (userChoice.Equals("paper") && gameChoice.Equals("scissors"))
                 || (userChoice.Equals("scissors") && gameChoice.Equals("rock")))
             {
                 resultsBannerImage = "loserBanner.png";
+                gameScore = gameScore + 1;
             }
             else
             {
                 resultsBannerImage = "drawBanner.png";
+            }
+        }
+
+        private void persistUserChoice(String userChoice)
+        {
+            persistRock = "";
+            persistPaper = "";
+            persistScissors = "";
+            switch (userChoice)
+            {
+                case "rock":
+                    persistRock = "checked";
+                    break;
+
+                case "paper":
+                    persistPaper = "checked";
+                    break;
+
+                case "scissors":
+                    persistScissors = "checked";
+                    break;
+
+                default:
+                    break;
             }
         }
     }

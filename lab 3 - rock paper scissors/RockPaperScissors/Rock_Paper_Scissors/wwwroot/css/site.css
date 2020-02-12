@@ -4,9 +4,6 @@ body {
     padding-top: 50px;
     padding-bottom: 20px;
     background-color: #333333;
-}
-
-footer {
     color: #f1f1f1;
 }
 
@@ -19,15 +16,15 @@ footer {
 }
 
 .resultsBanner {
-    width: 300px;
+    width: 75%;
 }
 
 .leftHand {
-    width: 300px;
+    width: 100%;
 }
 
 .rightHand {
-    width: 300px;
+    width: 100%;
 }
 
 .resultsBannerContainer {
@@ -41,7 +38,7 @@ footer {
     height: 0;
 }
 
-type=radio] + img {
+[type=radio] + img {
     cursor: pointer;
 }
 
