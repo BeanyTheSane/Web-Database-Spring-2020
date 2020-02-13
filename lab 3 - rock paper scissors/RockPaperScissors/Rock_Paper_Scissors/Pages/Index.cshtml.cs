@@ -31,6 +31,39 @@ namespace Rock_Paper_Scissors.Pages
             gameScore = Convert.ToInt32(Request.Form["gameScore"]);
             userScore = Convert.ToInt32(Request.Form["userScore"]);
 
+            displayUserChoice();
+
+            selectAndDisplayGameChoice();
+
+            evaluateAndDisplayResults();
+
+            resultsClass = "postback";
+
+        }
+
+        private void selectAndDisplayGameChoice()
+        {
+            Random random = new Random();
+            int gameChoiceCode = random.Next(1, 7);
+            if (gameChoiceCode <= 2)
+            {
+                gameChoice = "rock";
+                gameChoiceImage = "rightRock.png";
+            }
+            else if (gameChoiceCode == 3 || gameChoiceCode == 4)
+            {
+                gameChoice = "paper";
+                gameChoiceImage = "rightPaper.png";
+            }
+            else
+            {
+                gameChoice = "scissors";
+                gameChoiceImage = "rightScissors.png";
+            }
+        }
+
+        private void displayUserChoice()
+        {
             userChoice = Request.Form["userSelection"];
             switch (userChoice)
             {
@@ -49,52 +82,34 @@ namespace Rock_Paper_Scissors.Pages
                 default:
                     break;
             }
-            Random random = new Random();
-            switch (random.Next(1,4))
-            {
-                case 1:
-                    gameChoice = "rock";
-                    gameChoiceImage = "rightRock.png";
-                    break;
-                case 2:
-                    gameChoice = "paper";
-                    gameChoiceImage = "rightPaper.png";
-                    break;
-                case 3:
-                    gameChoice = "scissors";
-                    gameChoiceImage = "rightScissors.png";
-                    break;
-                default:
-                    break;
-            }
-
-
-
-            evaluateResults();
-
-            resultsClass = "postback";
-
         }
 
-        private void evaluateResults()
+        private void evaluateAndDisplayResults()
         {
-            if ((userChoice.Equals("rock") && gameChoice.Equals("scissors"))
-                || (userChoice.Equals("paper") && gameChoice.Equals("rock"))
-                || (userChoice.Equals("scissors") && gameChoice.Equals("paper")))
+            try
             {
-                resultsBannerImage = "winnerBanner.png";
-                userScore = userScore + 1;
+                if ((userChoice.Equals("rock") && gameChoice.Equals("scissors"))
+                    || (userChoice.Equals("paper") && gameChoice.Equals("rock"))
+                    || (userChoice.Equals("scissors") && gameChoice.Equals("paper")))
+                {
+                    resultsBannerImage = "winnerBanner.png";
+                    userScore = userScore + 1;
+                }
+                else if ((userChoice.Equals("rock") && gameChoice.Equals("paper"))
+                    || (userChoice.Equals("paper") && gameChoice.Equals("scissors"))
+                    || (userChoice.Equals("scissors") && gameChoice.Equals("rock")))
+                {
+                    resultsBannerImage = "loserBanner.png";
+                    gameScore = gameScore + 1;
+                }
+                else
+                {
+                    resultsBannerImage = "drawBanner.png";
+                }
             }
-            else if ((userChoice.Equals("rock") && gameChoice.Equals("paper"))
-                || (userChoice.Equals("paper") && gameChoice.Equals("scissors"))
-                || (userChoice.Equals("scissors") && gameChoice.Equals("rock")))
+            catch(Exception ex)
             {
-                resultsBannerImage = "loserBanner.png";
-                gameScore = gameScore + 1;
-            }
-            else
-            {
-                resultsBannerImage = "drawBanner.png";
+                String exceptionLog = ex.ToString();
             }
         }
 
