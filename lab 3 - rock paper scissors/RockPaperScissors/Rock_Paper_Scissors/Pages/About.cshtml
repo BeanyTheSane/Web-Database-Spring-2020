@@ -1,0 +1,23 @@
+﻿@page
+@model AboutModel
+@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"]</h2>
+
+<h3>Work Instructions</h3>
+    <p>
+        Create a page to play "Rock Paper and Scissors" against the web server. 
+        The user should make a selection, press a button, the code should generate the server's choice, 
+        and the result should be displayed. Make it look like a completed page, 
+        showing images for the user's selection and the servers.
+    </p>
+
+<h3>My Interpretation</h3>
+    <p>
+        I built this site using ASP.NET Razor pages.  The user selects a move from the choices on the left then clicks shoot!
+        When the form is submitted the backend picks the apporpraite image to display for the users choice and selects a random move 
+        for the games choice, also displaying the appropriate image for that move.  The backend then compares the two moves and displays
+        the results by showing a banner in the game display area with either win, lose, or draw.  There are also counters for 
+        each team that display the amount of wins each side currently has.
+    </p>

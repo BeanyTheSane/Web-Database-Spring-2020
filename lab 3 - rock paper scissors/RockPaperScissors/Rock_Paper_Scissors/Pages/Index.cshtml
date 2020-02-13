@@ -1,0 +1,50 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "The Game";
+}
+
+
+<div class="container gameScreen">
+    <form method="post" class="col-xs-4">
+        <label class="row">
+            <input type="radio" name="userSelection" value="rock" @Model.persistRock />
+            <img src="~/images/rockBanner.png" class="userSelection" />
+        </label>
+        <label class="row">
+            <input type="radio" class="row userSelection" name="userSelection" value="paper" @Model.persistPaper />
+            <img src="~/images/paperBanner.png" class="userSelection" />
+        </label>
+        <label class="row">
+            <input type="radio" class="row userSelection" name="userSelection" value="scissors" @Model.persistScissors />
+            <img src="~/images/scissorsBanner.png" class="userSelection" />
+        </label>
+        <label class="row">
+            <input type="image" src="~/images/shootBanner.png" class="userSelection" />
+        </label>
+        <input type="hidden" name="userScore" value="@Model.userScore" />
+        <input type="hidden" name="gameScore" value="@Model.gameScore" />
+    </form>
+
+        <div class="col-xs-7 @Model.resultsClass">
+            <div class="row">
+                <div class="col-xs-3">
+                    <p>You: @Model.userScore</p>
+                </div>
+                <div class="resultsBannerContainer col-xs-6">
+                    <img src="~/images/@Model.resultsBannerImage" id="resultsBanner" class="resultsBanner" />
+                </div>
+                <div class="col-xs-3">
+                    <p>Them: @Model.gameScore</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <img src="~/images/@Model.userChoiceImage" id="userChoice" class="leftHand" />
+                </div>
+                <div class="col-xs-6">
+                    <img src="~/images/@Model.gameChoiceImage" id="gameChoice" class="rightHand" />
+                </div>
+            </div>
+        </div>
+</div>
