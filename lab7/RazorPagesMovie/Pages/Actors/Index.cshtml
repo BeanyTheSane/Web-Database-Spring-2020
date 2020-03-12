@@ -10,6 +10,15 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form>
+    <p>
+        First Name: <input type="text" asp-for="FirstNameSearchString" />
+        Last Name: <input type="text" asp-for="LastNameSearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
