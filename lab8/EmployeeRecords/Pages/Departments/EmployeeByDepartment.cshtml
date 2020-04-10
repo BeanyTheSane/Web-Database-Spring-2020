@@ -1,0 +1,46 @@
+﻿@page "{DepartmentId?}"
+@model EmployeeRecords.Pages.Departments.EmployeeByDepartmentModel
+@{
+    ViewData["Title"] = "Department Personel";
+}
+
+<h1>Department Personel</h1>
+
+@foreach (var dept in Model.Department)
+{
+    <h2>
+        @Html.DisplayFor(modelItem => dept.DepartmentName)
+    </h2>
+}
+<table class="table">
+    <thead>     
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employees[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employees[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employees[0].EmployeeId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Employees)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeId)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
