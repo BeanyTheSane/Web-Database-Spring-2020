@@ -1,0 +1,1 @@
+Use the link in this folder to view a interactive mockup of the project.  The mock up is hosted on Adobe XD.  The folder also contains pdfs of each page with a visual description for the linkage between the pages.
