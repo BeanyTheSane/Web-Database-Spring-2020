@@ -15,5 +15,7 @@ namespace IdentityLabs.Data
         }
 
         public DbSet<IdentityLabs.Models.Customer> Customer { get; set; }
+
+        public DbSet<IdentityLabs.Models.SalesRep> SalesRep { get; set; }
     }
 }

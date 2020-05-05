@@ -23,6 +23,7 @@ namespace IdentityLabs.Pages.Customers
 
         [BindProperty]
         public Customer Customer { get; set; }
+        public IList<SalesRep> SalesRepLink { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -32,6 +33,8 @@ namespace IdentityLabs.Pages.Customers
             }
 
             Customer = await _context.Customer.FirstOrDefaultAsync(m => m.CustomerId == id);
+
+            SalesRepLink = await _context.SalesRep.ToListAsync();
 
             if (Customer == null)
             {

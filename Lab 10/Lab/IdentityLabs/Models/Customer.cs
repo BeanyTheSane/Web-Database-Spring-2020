@@ -21,5 +21,9 @@ namespace IdentityLabs.Models
         [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"), Display(Name = "Email"), Required]
         public string Email { get; set; }
 
+        public int SalesRepID { get; set; }
+
+        public SalesRep SalesRep { get; set; }
+
     }
 }

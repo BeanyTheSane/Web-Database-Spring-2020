@@ -39,6 +39,9 @@ namespace IdentityLabs.Migrations
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
+                    b.Property<int>("SalesRepID")
+                        .HasColumnType("int");
+
                     b.Property<string>("State")
                         .IsRequired()
                         .HasColumnType("nvarchar(32)")
@@ -51,7 +54,44 @@ namespace IdentityLabs.Migrations
 
                     b.HasKey("CustomerId");
 
+                    b.HasIndex("SalesRepID");
+
                     b.ToTable("Customer");
+                });
+
+            modelBuilder.Entity("IdentityLabs.Models.SalesRep", b =>
+                {
+                    b.Property<int>("SalesRepID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.HasKey("SalesRepID");
+
+                    b.ToTable("SalesRep");
+                });
+
+            modelBuilder.Entity("IdentityLabs.Models.Customer", b =>
+                {
+                    b.HasOne("IdentityLabs.Models.SalesRep", "SalesRep")
+                        .WithMany()
+                        .HasForeignKey("SalesRepID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

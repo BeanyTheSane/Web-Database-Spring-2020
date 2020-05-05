@@ -39,6 +39,13 @@
                 <span asp-validation-for="Customer.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Customer.SalesRep" class="control-label"></label>
+                <select asp-for="Customer.SalesRepID" class="form-control"
+                        asp-items="@Model.SalesReps">
+                    <option value="">-- Select Sales Rep --</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

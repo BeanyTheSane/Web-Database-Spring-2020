@@ -13,6 +13,7 @@ namespace IdentityLabs.Pages.Customers
     public class IndexModel : PageModel
     {
         private readonly IdentityLabs.Data.IdentityLabsContext _context;
+        public IList<SalesRep> SalesRepLink { get; set; }
 
         public IndexModel(IdentityLabs.Data.IdentityLabsContext context)
         {
@@ -24,6 +25,7 @@ namespace IdentityLabs.Pages.Customers
         public async Task OnGetAsync()
         {
             Customer = await _context.Customer.ToListAsync();
+            SalesRepLink = await _context.SalesRep.ToListAsync();
         }
     }
 }

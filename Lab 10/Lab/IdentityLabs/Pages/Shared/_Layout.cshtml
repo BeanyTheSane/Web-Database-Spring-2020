@@ -23,8 +23,29 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Customers/Index">Customer List</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/SalesReps/Index">SalesRep List</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/LabInstructions">Lab Instructions</a>
                         </li>
+                        @if (Model.GetType().GetProperty("SalesRepLink") != null)
+                        {
+                            <li class="nav-item">
+                                <select onchange="location = this.value;">
+                                    <option>
+                                        Select A Sales Rep
+                                    </option>
+                                    @foreach (var item in Model.SalesRepLink)
+                                    {
+                                        <option value="/SalesReps/CustomerBySalesRep?SalesRepId=@item.SalesRepID">
+                                            @item.FullName
+                                        </option>
+                                    }
+
+
+                                </select>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

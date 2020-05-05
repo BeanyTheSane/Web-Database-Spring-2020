@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using IdentityLabs.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace IdentityLabs.Pages.Customers
 {
@@ -20,6 +22,8 @@ namespace IdentityLabs.Pages.Customers
 
         [BindProperty]
         public Customer Customer { get; set; }
+        public List<SelectListItem> SalesReps { get; set; }
+        public IList<SalesRep> SalesRepLink { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,6 +33,13 @@ namespace IdentityLabs.Pages.Customers
             }
 
             Customer = await _context.Customer.FirstOrDefaultAsync(m => m.CustomerId == id);
+            SalesRepLink = await _context.SalesRep.ToListAsync();
+            SalesReps = _context.SalesRep.Select(a =>
+                                          new SelectListItem
+                                          {
+                                              Value = a.SalesRepID.ToString(),
+                                              Text = a.FullName
+                                          }).ToList();
 
             if (Customer == null)
             {
