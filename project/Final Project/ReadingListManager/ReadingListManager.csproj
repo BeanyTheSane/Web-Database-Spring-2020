@@ -18,10 +18,7 @@
 
 
   <ItemGroup>
-    <Folder Include="Pages\Authors\" />
-    <Folder Include="Pages\Genres\" />
     <Folder Include="Pages\UserBookList\" />
-    <Folder Include="Pages\Series\" />
   </ItemGroup>
 
 </Project>

@@ -7,7 +7,7 @@ namespace ReadingListManager.Models
 {
     public class Series
     {
-        public int ID { get; set; }
+        public int SeriesID { get; set; }
         public string Name { get; set; }
     }
 }

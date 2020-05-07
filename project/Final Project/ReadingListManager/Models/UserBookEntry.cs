@@ -9,7 +9,7 @@ namespace ReadingListManager.Models
     public class UserBookEntry
     {
         [Key]
-        public Book BookId { get; set; }
+        public Book UserBookEntryID { get; set; }
         [DataType(DataType.Date)]
         public DateTime DateAdded { get; set; }
         [DataType(DataType.Date)]

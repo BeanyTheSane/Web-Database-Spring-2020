@@ -29,7 +29,7 @@ namespace ReadingListManager.Pages.Books
                 return NotFound();
             }
 
-            Book = await _context.Book.FirstOrDefaultAsync(m => m.ID == id);
+            Book = await _context.Book.FirstOrDefaultAsync(m => m.BookID == id);
 
             if (Book == null)
             {

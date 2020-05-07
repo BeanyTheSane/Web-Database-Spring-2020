@@ -21,7 +21,7 @@ namespace ReadingListManager.Migrations
 
             modelBuilder.Entity("ReadingListManager.Models.Author", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("AuthorID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -35,7 +35,7 @@ namespace ReadingListManager.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("AuthorID");
 
                     b.HasIndex("BookID");
 
@@ -44,55 +44,60 @@ namespace ReadingListManager.Migrations
 
             modelBuilder.Entity("ReadingListManager.Models.Book", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("BookID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AuthorID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GenreID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SeriesInfoID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("BookID");
+
+                    b.HasIndex("AuthorID");
+
+                    b.HasIndex("GenreID");
+
+                    b.HasIndex("SeriesInfoID");
 
                     b.ToTable("Book");
                 });
 
             modelBuilder.Entity("ReadingListManager.Models.Genre", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("GenreID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("BookID")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
-
-                    b.HasIndex("BookID");
+                    b.HasKey("GenreID");
 
                     b.ToTable("Genre");
                 });
 
             modelBuilder.Entity("ReadingListManager.Models.Series", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("SeriesID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("BookID")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
-
-                    b.HasIndex("BookID");
+                    b.HasKey("SeriesID");
 
                     b.ToTable("Series");
                 });
@@ -104,18 +109,25 @@ namespace ReadingListManager.Migrations
                         .HasForeignKey("BookID");
                 });
 
-            modelBuilder.Entity("ReadingListManager.Models.Genre", b =>
+            modelBuilder.Entity("ReadingListManager.Models.Book", b =>
                 {
-                    b.HasOne("ReadingListManager.Models.Book", null)
-                        .WithMany("Genres")
-                        .HasForeignKey("BookID");
-                });
+                    b.HasOne("ReadingListManager.Models.Author", "Author")
+                        .WithMany()
+                        .HasForeignKey("AuthorID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-            modelBuilder.Entity("ReadingListManager.Models.Series", b =>
-                {
-                    b.HasOne("ReadingListManager.Models.Book", null)
-                        .WithMany("Series")
-                        .HasForeignKey("BookID");
+                    b.HasOne("ReadingListManager.Models.Genre", "Genre")
+                        .WithMany()
+                        .HasForeignKey("GenreID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ReadingListManager.Models.Series", "SeriesInfo")
+                        .WithMany()
+                        .HasForeignKey("SeriesInfoID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

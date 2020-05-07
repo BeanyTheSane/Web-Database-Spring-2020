@@ -30,7 +30,7 @@ namespace ReadingListManager.Pages.Books
                 return NotFound();
             }
 
-            Book = await _context.Book.FirstOrDefaultAsync(m => m.ID == id);
+            Book = await _context.Book.FirstOrDefaultAsync(m => m.BookID == id);
 
             if (Book == null)
             {
@@ -56,7 +56,7 @@ namespace ReadingListManager.Pages.Books
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BookExists(Book.ID))
+                if (!BookExists(Book.BookID))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace ReadingListManager.Pages.Books
 
         private bool BookExists(int id)
         {
-            return _context.Book.Any(e => e.ID == id);
+            return _context.Book.Any(e => e.BookID == id);
         }
     }
 }

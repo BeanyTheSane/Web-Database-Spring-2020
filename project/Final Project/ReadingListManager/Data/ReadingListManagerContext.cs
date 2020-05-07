@@ -15,5 +15,11 @@ namespace ReadingListManager.Data
         }
 
         public DbSet<ReadingListManager.Models.Book> Book { get; set; }
+
+        public DbSet<ReadingListManager.Models.Author> Author { get; set; }
+
+        public DbSet<ReadingListManager.Models.Genre> Genre { get; set; }
+
+        public DbSet<ReadingListManager.Models.Series> Series { get; set; }
     }
 }

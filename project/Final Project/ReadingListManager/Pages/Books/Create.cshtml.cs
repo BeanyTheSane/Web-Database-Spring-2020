@@ -19,8 +19,35 @@ namespace ReadingListManager.Pages.Books
             _context = context;
         }
 
+        public List<SelectListItem> Authors { get; set; }
+        public IList<Author> AuthorLink { get; set; }
+        public List<SelectListItem> Genres { get; set; }
+        public IList<Genre> GenreLink { get; set; }
+        public List<SelectListItem> SeriesList { get; set; }
+        public IList<Series> SeriesListLink { get; set; }
         public IActionResult OnGet()
         {
+            Authors = _context.Author.Select(a =>
+                                          new SelectListItem
+                                          {
+                                              Value = a.AuthorID.ToString(),
+                                              Text = a.FullName
+                                          }).ToList();
+            Genres = _context.Genre.Select(a =>
+                                          new SelectListItem
+                                          {
+                                              Value = a.GenreID.ToString(),
+                                              Text = a.Name
+                                          }).ToList();
+            SeriesList = _context.Series.Select(a =>
+                                          new SelectListItem
+                                          {
+                                              Value = a.SeriesID.ToString(),
+                                              Text = a.Name
+                                          }).ToList();
+            AuthorLink = _context.Author.ToList();
+            GenreLink = _context.Genre.ToList();
+            SeriesListLink = _context.Series.ToList();
             return Page();
         }
 
