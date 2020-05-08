@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReadingListManager.Data;
 
 namespace ReadingListManager.Migrations
 {
     [DbContext(typeof(ReadingListManagerContext))]
-    partial class ReadingListManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20200507200550_ScaffoldIdentityPages")]
+    partial class ScaffoldIdentityPages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,38 +104,6 @@ namespace ReadingListManager.Migrations
                     b.ToTable("Series");
                 });
 
-            modelBuilder.Entity("ReadingListManager.Models.UserBookEntry", b =>
-                {
-                    b.Property<int>("UserBookEntryID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("BookID")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("CurrentRead")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("DateAdded")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateRead")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateStarted")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UserEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserBookEntryID");
-
-                    b.HasIndex("BookID");
-
-                    b.ToTable("UserBookEntry");
-                });
-
             modelBuilder.Entity("ReadingListManager.Models.Author", b =>
                 {
                     b.HasOne("ReadingListManager.Models.Book", null)
@@ -160,13 +130,6 @@ namespace ReadingListManager.Migrations
                         .HasForeignKey("SeriesInfoID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("ReadingListManager.Models.UserBookEntry", b =>
-                {
-                    b.HasOne("ReadingListManager.Models.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookID");
                 });
 #pragma warning restore 612, 618
         }

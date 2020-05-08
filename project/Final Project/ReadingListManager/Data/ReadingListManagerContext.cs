@@ -21,5 +21,7 @@ namespace ReadingListManager.Data
         public DbSet<ReadingListManager.Models.Genre> Genre { get; set; }
 
         public DbSet<ReadingListManager.Models.Series> Series { get; set; }
+
+        public DbSet<ReadingListManager.Models.UserBookEntry> UserBookEntry { get; set; }
     }
 }

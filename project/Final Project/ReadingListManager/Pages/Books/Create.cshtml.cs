@@ -25,6 +25,7 @@ namespace ReadingListManager.Pages.Books
         public IList<Genre> GenreLink { get; set; }
         public List<SelectListItem> SeriesList { get; set; }
         public IList<Series> SeriesListLink { get; set; }
+        public SelectListItem UserEmails { get; set; }
         public IActionResult OnGet()
         {
             Authors = _context.Author.Select(a =>

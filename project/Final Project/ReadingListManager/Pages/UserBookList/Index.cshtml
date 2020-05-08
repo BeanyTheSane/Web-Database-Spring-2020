@@ -1,0 +1,61 @@
+﻿@page
+@model ReadingListManager.Pages.UserBookList.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserBookEntry[0].DateAdded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserBookEntry[0].DateStarted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserBookEntry[0].DateRead)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserBookEntry[0].CurrentRead)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserBookEntry[0].UserEmail)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.UserBookEntry) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAdded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateStarted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateRead)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurrentRead)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserEmail)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.UserBookEntryID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.UserBookEntryID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.UserBookEntryID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

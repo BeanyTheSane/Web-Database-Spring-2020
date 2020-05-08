@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ReadingListManager.Models
     public class UserBookEntry
     {
         [Key]
-        public Book UserBookEntryID { get; set; }
+        public int UserBookEntryID { get; set; }
         [DataType(DataType.Date)]
         public DateTime DateAdded { get; set; }
         [DataType(DataType.Date)]
@@ -17,5 +18,8 @@ namespace ReadingListManager.Models
         [DataType(DataType.Date)]
         public DateTime DateRead { get; set; }
         public Boolean CurrentRead { get; set; }
+        public Book Book { get; set; }
+        public String UserEmail { get; set; }
+
     }
 }
