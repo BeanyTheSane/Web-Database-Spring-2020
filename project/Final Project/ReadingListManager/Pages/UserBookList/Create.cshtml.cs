@@ -19,9 +19,16 @@ namespace ReadingListManager.Pages.UserBookList
             _context = context;
         }
 
+        public List<SelectListItem> Books { get; set; }
         public List<SelectListItem> UserEmails { get; set; }
         public IActionResult OnGet()
         {
+            Books = _context.Book.Select(a =>
+                                             new SelectListItem
+                                             {
+                                                 Value = a.AuthorID.ToString(),
+                                                 Text = a.Title
+                                             }).ToList();
             UserEmails = new List<SelectListItem>
             {
                 new SelectListItem
