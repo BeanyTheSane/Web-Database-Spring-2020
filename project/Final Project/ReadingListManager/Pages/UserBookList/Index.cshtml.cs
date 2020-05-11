@@ -23,7 +23,7 @@ namespace ReadingListManager.Pages.UserBookList
 
         public async Task OnGetAsync()
         {
-            UserBookEntry = await _context.UserBookEntry.ToListAsync();
+            UserBookEntry = await _context.UserBookEntry.Where(ube => ube.UserEmail.Equals(User.Identity.Name)).ToListAsync();
         }
     }
 }
