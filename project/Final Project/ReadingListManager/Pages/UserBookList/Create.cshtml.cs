@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -10,6 +11,7 @@ using ReadingListManager.Models;
 
 namespace ReadingListManager.Pages.UserBookList
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly ReadingListManager.Data.ReadingListManagerContext _context;
@@ -20,23 +22,15 @@ namespace ReadingListManager.Pages.UserBookList
         }
 
         public List<SelectListItem> Books { get; set; }
-        public List<SelectListItem> UserEmails { get; set; }
         public IActionResult OnGet()
         {
+
             Books = _context.Book.Select(a =>
                                              new SelectListItem
                                              {
                                                  Value = a.AuthorID.ToString(),
                                                  Text = a.Title
                                              }).ToList();
-            UserEmails = new List<SelectListItem>
-            {
-                new SelectListItem
-                {
-                    Value = User.Identity.Name,
-                    Text = User.Identity.Name
-                }
-            };
             return Page();
         }
 
@@ -52,6 +46,8 @@ namespace ReadingListManager.Pages.UserBookList
                 return Page();
             }
 
+            UserBookEntry.DateAdded = DateTime.Now;
+            UserBookEntry.UserEmail = User.Identity.Name;
             _context.UserBookEntry.Add(UserBookEntry);
             await _context.SaveChangesAsync();
 

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReadingListManager.Data;
 
 namespace ReadingListManager.Migrations
 {
     [DbContext(typeof(ReadingListManagerContext))]
-    partial class ReadingListManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20200512034807_updatedSomeStuff")]
+    partial class updatedSomeStuff
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

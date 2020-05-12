@@ -16,6 +16,7 @@ namespace ReadingListManager.Models
         public int SeriesInfoID { get; set; }
         public int GenreID { get; set; }
         public Author Author { get; set; }
+        [Display(Name = "Series")]
         public Series SeriesInfo { get; set; }
         public Genre Genre { get; set; }
 

@@ -14,12 +14,12 @@ namespace ReadingListManager.Models
         [DataType(DataType.Date)]
         public DateTime DateAdded { get; set; }
         [DataType(DataType.Date)]
-        public DateTime DateStarted { get; set; }
+        public DateTime? DateStarted { get; set; }
         [DataType(DataType.Date)]
-        public DateTime DateRead { get; set; }
+        public DateTime? DateRead { get; set; }
         public Boolean CurrentRead { get; set; }
+        public int BookID { get; set; }
         public Book Book { get; set; }
         public String UserEmail { get; set; }
-
     }
 }

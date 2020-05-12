@@ -15,11 +15,6 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="UserBookEntry.DateAdded" class="control-label"></label>
-                <input asp-for="UserBookEntry.DateAdded" class="form-control"/>
-                <span asp-validation-for="UserBookEntry.DateAdded" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="UserBookEntry.DateStarted" class="control-label"></label>
                 <input asp-for="UserBookEntry.DateStarted" class="form-control" />
                 <span asp-validation-for="UserBookEntry.DateStarted" class="text-danger"></span>
@@ -35,14 +30,8 @@
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="UserBookEntry.UserEmail" class="control-label"></label>
-                <select asp-for="UserBookEntry.UserEmail" class="form-control"
-                        asp-items="@Model.UserEmails">
-                </select>
-            </div>
-            <div class="form-group">
                 <label asp-for="UserBookEntry.Book" class="control-label"></label>
-                <select asp-for="UserBookEntry.Book" class="form-control"
+                <select asp-for="UserBookEntry.BookID" class="form-control"
                         asp-items="@Model.Books">
                     <option value="">-- Select Book --</option>
                 </select>

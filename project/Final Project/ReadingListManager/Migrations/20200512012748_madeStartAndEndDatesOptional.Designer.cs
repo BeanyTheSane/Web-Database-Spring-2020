@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReadingListManager.Data;
 
 namespace ReadingListManager.Migrations
 {
     [DbContext(typeof(ReadingListManagerContext))]
-    partial class ReadingListManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20200512012748_madeStartAndEndDatesOptional")]
+    partial class madeStartAndEndDatesOptional
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -109,7 +111,7 @@ namespace ReadingListManager.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BookID")
+                    b.Property<int?>("BookID")
                         .HasColumnType("int");
 
                     b.Property<bool>("CurrentRead")
@@ -166,9 +168,7 @@ namespace ReadingListManager.Migrations
                 {
                     b.HasOne("ReadingListManager.Models.Book", "Book")
                         .WithMany()
-                        .HasForeignKey("BookID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BookID");
                 });
 #pragma warning restore 612, 618
         }

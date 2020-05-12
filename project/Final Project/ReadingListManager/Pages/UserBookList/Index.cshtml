@@ -6,54 +6,54 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>myShelf</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Add New Book</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.UserBookEntry[0].Book.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserBookEntry[0].Book.Author)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.UserBookEntry[0].DateAdded)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UserBookEntry[0].DateStarted)
+                @Html.DisplayNameFor(model => model.UserBookEntry[0].Book.SeriesInfo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UserBookEntry[0].DateRead)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserBookEntry[0].CurrentRead)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserBookEntry[0].UserEmail)
+                @Html.DisplayNameFor(model => model.UserBookEntry[0].Book.Genre)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.UserBookEntry) {
+@foreach (var item in Model.UserBookList) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.DateAdded)
+                @Html.DisplayFor(modelItem => item.title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateStarted)
+                @Html.DisplayFor(modelItem => item.author)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateRead)
+                @Html.DisplayFor(modelItem => item.dateAdded)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CurrentRead)
+                @Html.DisplayFor(modelItem => item.seriesInfo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UserEmail)
+                @Html.DisplayFor(modelItem => item.genre)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.UserBookEntryID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.UserBookEntryID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.UserBookEntryID">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.userBookEntryID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.userBookEntryID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.userBookEntryID">Delete</a>
             </td>
         </tr>
 }
